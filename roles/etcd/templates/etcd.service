@@ -9,17 +9,7 @@ RestartSec=5s
 LimitNOFILE=40000
 TimeoutStartSec=0
 
-ExecStart=/usr/local/bin/etcd --name my-etcd-{{ ansible_hostname }} \
-	--quota-backend-bytes {{ storage }} \
-    --data-dir /var/lib/etcd \
-    --auto-compaction-retention {{ key_history }} \
-    --listen-client-urls https://{{ ansible_default_ipv4.address }}:2379 \
-    --advertise-client-urls https://{{ ansible_fqdn }}:2379 \
-    --listen-peer-urls https://{{ ansible_default_ipv4.address }}:2380 \
-    --initial-advertise-peer-urls https://{{ ansible_fqdn }}:2380 \
-    --initial-cluster {% for host in groups[etcd_group] %}{% if not loop.first %},{% endif %}my-etcd-{{ hostvars[host].ansible_hostname }}=https://{{ hostvars[host].ansible_fqdn  }}:2380{% endfor %} \
-    --initial-cluster-token my-etcd-token \
-    --initial-cluster-state new
+ExecStart=/usr/local/bin/etcd --name my-etcd-{{ ansible_hostname }} 
 
 [Install]
 WantedBy=multi-user.target

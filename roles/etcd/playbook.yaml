@@ -1,0 +1,28 @@
+---
+- hosts: remote
+  become: yes
+  tasks:
+    # 创建对应的文件夹
+    # - name: "Retrieve hostname"
+    #   command: hostname
+    #   register: output
+    # - name: "Print hostname"
+    #   debug: var=output.stdout_lines
+    # - name: Create files
+    #   file:
+    #     path: "{{ item }}"
+    #     state: directory
+    #   become: false
+    #   run_once: true
+    #   loop:
+    #     - files
+    #     - files/etcd
+    #     - files/etcd/peer
+    #     - files/etcd/client
+    - name: copy etcd.service
+      template:
+        src: etcd.service
+        # dest: /etc/systemd/system/etcd.service
+        dest: /home/ubuntu/etcd
+        # mode: 0644
+      tags: ['etcd']
