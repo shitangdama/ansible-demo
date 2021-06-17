@@ -28,3 +28,6 @@ ExecStart=/usr/local/bin/etcd --name my-etcd-{{ ansible_hostname }} \
     --initial-advertise-peer-urls https://{{ ansible_fqdn }}:2380 \
 
     --initial-cluster {% for host in groups[etcd_group] %}{% if not loop.first %},{% endif %}my-etcd-{{ hostvars[host].ansible_hostname }}=https://{{ hostvars[host].ansible_fqdn  }}:2380{% endfor %} \
+
+
+通过这个查看下调用逻辑
