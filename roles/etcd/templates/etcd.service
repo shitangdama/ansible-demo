@@ -9,7 +9,13 @@ RestartSec=5s
 LimitNOFILE=40000
 TimeoutStartSec=0
 
-ExecStart=/usr/local/bin/etcd --name my-etcd-{{ ansible_hostname }} 
+ExecStart=/usr/local/bin/etcd --name my-etcd-{{ ansible_hostname }} \
+        --data-dir /var/lib/etcd \
+        --listen-client-urls http://{{ ansible_default_ipv4.address }}:2379 \
+        --advertise-client-urls http://{{ ansible_fqdn }}:2379 \
+        --listen-peer-urls http://{{ ansible_default_ipv4.address }}:2380 \
+        --initial-advertise-peer-urls http://{{ ansible_fqdn }}:2380 \
 
 [Install]
 WantedBy=multi-user.target
+

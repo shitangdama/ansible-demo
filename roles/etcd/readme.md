@@ -13,3 +13,12 @@ path参数 ：必须参数，用于指定要操作的文件或目录，在之前
 
 区分group_vars和host_vars的变量区别
 
+
+
+ExecStart=/usr/local/bin/etcd --name my-etcd-{{ ansible_hostname }} \
+        --data-dir /var/lib/etcd \
+        --listen-client-urls http://{{ ansible_default_ipv4.address }}:2379 \
+        --advertise-client-urls http://{{ ansible_fqdn }}:2379 \
+        --listen-peer-urls http://{{ ansible_default_ipv4.address }}:2380 \
+        --initial-advertise-peer-urls https://{{ ansible_fqdn }}:2380 \
+        --initial-cluster {% for host in groups[etcd_group] %}{% if not loop.first %},{% endif %}my-etcd-{{ hostvars[host].ansible_hostname }}=http://{{ hostvars[host].ansible_fqdn  }}:2380{% endfor %}
