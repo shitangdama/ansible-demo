@@ -49,10 +49,8 @@ include就是tasks复用或者condition比较大范围的时候
 - name: 添加hosts
   ...
 
-王不二尼大妈 22:28:01
 这个tags
 
-王不二尼大妈 22:28:04
 有什么用
 
 

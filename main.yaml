@@ -1,3 +1,4 @@
-hosts: remote
-role:
-  - etcd
+---
+- hosts: remote
+  roles:
+    - etcd

@@ -30,3 +30,6 @@ ExecStart=/usr/local/bin/etcd --name my-etcd-{{ ansible_hostname }} \
 
 
 https://blog.csdn.net/u011673554/article/details/48877985?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-12&spm=1001.2101.3001.4242
+
+
+ansible -i

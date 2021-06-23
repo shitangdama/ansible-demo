@@ -14,8 +14,7 @@ ExecStart=/usr/local/bin/etcd --name my-etcd-{{ ansible_hostname }} \
         --listen-client-urls http://{{ ansible_default_ipv4.address }}:2379 \
         --advertise-client-urls http://{{ ansible_fqdn }}:2379 \
         --listen-peer-urls http://{{ ansible_default_ipv4.address }}:2380 \
-        --initial-advertise-peer-urls http://{{ ansible_fqdn }}:2380 \
+        --initial-advertise-peer-urls {% for h in ansible_play_hosts_all %}{{ h }}:2180{% if not loop.last%},{% endif %}{% endfor%}
 
 [Install]
 WantedBy=multi-user.target
-

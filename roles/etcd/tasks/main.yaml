@@ -1,16 +1,28 @@
 ---
-- name: Create files
-  hosts: remote 
-  file:
-    path: files
-    state: directory
-    dest: ~/etcd
-  become: false
-  run_once: true
-  loop:
-      - files
-      - files/etcd
+- name: copy etcd.service
+  template:
+    src: etcd.service
+    # dest: /etc/systemd/system/etcd.service
+    dest: /home/ubuntu/etcd
+    # mode: 0644
   tags: ['etcd']
+
+- name: test
+  debug: var=hostvars
+# - name: Create files
+#   hosts: remote 
+#   file:
+#     path: files
+#     state: directory
+#     dest: ~/etcd
+#   become: false
+#   run_once: true
+#   loop:
+#       - files
+#       - files/etcd
+#   tags: ['etcd']
+# - name: test
+#   debug: var=hostvars
 # - name: copy etcd
 #   copy:
 #     src: etcd
