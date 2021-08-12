@@ -2,3 +2,6 @@
 - hosts: remote
   roles:
     - etcd
+- host: remote
+  roles:
+    - test

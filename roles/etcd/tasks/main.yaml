@@ -1,4 +1,12 @@
 ---
+- name: Create files
+  file:
+    path: files
+    state: directory
+    dest: ~/etcd
+  become: false
+  run_once: true
+  tags: ['etcd']
 - name: copy etcd.service
   template:
     src: etcd.service
@@ -9,18 +17,7 @@
 
 - name: test
   debug: var=hostvars
-# - name: Create files
-#   hosts: remote 
-#   file:
-#     path: files
-#     state: directory
-#     dest: ~/etcd
-#   become: false
-#   run_once: true
-#   loop:
-#       - files
-#       - files/etcd
-#   tags: ['etcd']
+
 # - name: test
 #   debug: var=hostvars
 # - name: copy etcd

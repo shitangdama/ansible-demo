@@ -33,3 +33,8 @@ https://blog.csdn.net/u011673554/article/details/48877985?utm_medium=distribute.
 
 
 ansible -i
+
+
+ ansible -i ./inventory remote -m ping -u root --ask-pass 
+
+ ansible-playbook
