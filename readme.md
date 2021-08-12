@@ -2,7 +2,6 @@ https://www.cnblogs.com/yanjieli/p/10969299.html
 
 https://github.com/svensp/cloud_hosts/tree/master/roles/etcd
 
-https://www.bilibili.com/video/BV19p4y1t7ZB?p=13
 
 参数对比
 
@@ -38,3 +37,56 @@ ansible -i
  ansible -i ./inventory remote -m ping -u root --ask-pass 
 
  ansible-playbook
+
+
+ https://github.com/qist/k8s/blob/master/k8s-install.sh
+
+ https://github.com/zhangguanzhang/consul-tls-ansible
+
+ glusterfs
+
+ https://kubernetes.io/zh/docs/concepts/storage/volumes/#nfs
+
+
+ https://kubernetes.io/zh/docs/concepts/scheduling-eviction/pod-overhead/#%E9%AA%8C%E8%AF%81-pod-cgroup-%E9%99%90%E5%88%B6
+
+
+ 关于验证pod cgroup 限制
+
+
+etcd的资源限制 怎么监控
+ https://etcd.io/docs/v3.5/op-guide/hardware/#example-hardware-configurations
+
+
+关于docker的控制 需要看线cri相关命令和代码
+ https://kubernetes.io/zh/docs/tasks/administer-cluster/migrating-from-dockershim/check-if-dockershim-deprecation-affects-you/#role-of-dockershim
+
+
+
+ Container命令ctr,crictl的用法
+
+ https://blog.csdn.net/tongzidane/article/details/114587138
+
+ Kubelet Eviction Policy 
+
+ https://github.com/howieyuen/howieyuen.github.io/tree/31273576d6b34353b8c159207765c9be12bc3500/content/docs/kubernetes
+
+ https://github.com/howieyuen/howieyuen.github.io/blob/31273576d6b34353b8c159207765c9be12bc3500/content/docs/kubernetes/kubelet/kubelet-eviction-manager.md
+
+
+
+ kubelet-docker交互.md
+ https://github.com/lx1036/code/blob/b026bbca968ff30db1249732f4d86c7b2527b97c/go/k8s/kubelet/docker/kubelet-docker%E4%BA%A4%E4%BA%92.md
+
+kubelet 源码
+ https://github.com/lx1036/code/blob/b026bbca968ff30db1249732f4d86c7b2527b97c/go/k8s/kubelet/kubelet%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md
+
+
+
+ https://github.com/DarkForcesX/note/blob/ab57279a22bbc70bb2ab840dedf8cbc7d4481cac/00%E3%80%81k8sLink.md
+
+ sgw组
+ ecmp->dpvs->nginx
+
+
+ https://xigang.github.io/2018/05/05/systemctl/
